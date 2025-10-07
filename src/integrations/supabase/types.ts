@@ -14,7 +14,217 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      custom_designs: {
+        Row: {
+          created_at: string | null
+          custom_image_url: string | null
+          customization_prompt: string
+          fabric_preference: string | null
+          id: string
+          measurements: Json | null
+          modifications: Json | null
+          original_item_id: string | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          custom_image_url?: string | null
+          customization_prompt: string
+          fabric_preference?: string | null
+          id?: string
+          measurements?: Json | null
+          modifications?: Json | null
+          original_item_id?: string | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          custom_image_url?: string | null
+          customization_prompt?: string
+          fabric_preference?: string | null
+          id?: string
+          measurements?: Json | null
+          modifications?: Json | null
+          original_item_id?: string | null
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "custom_designs_original_item_id_fkey"
+            columns: ["original_item_id"]
+            isOneToOne: false
+            referencedRelation: "identified_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      identified_items: {
+        Row: {
+          ai_confidence: number | null
+          category: string | null
+          color: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          item_name: string | null
+          product_matches: Json | null
+          style: string | null
+          upload_id: string
+          user_id: string
+        }
+        Insert: {
+          ai_confidence?: number | null
+          category?: string | null
+          color?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          item_name?: string | null
+          product_matches?: Json | null
+          style?: string | null
+          upload_id: string
+          user_id: string
+        }
+        Update: {
+          ai_confidence?: number | null
+          category?: string | null
+          color?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          item_name?: string | null
+          product_matches?: Json | null
+          style?: string | null
+          upload_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "identified_items_upload_id_fkey"
+            columns: ["upload_id"]
+            isOneToOne: false
+            referencedRelation: "uploaded_images"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          created_at: string | null
+          custom_design_id: string | null
+          fabric_preference: string | null
+          id: string
+          item_id: string | null
+          measurements: Json | null
+          order_type: string
+          shipping_address: Json | null
+          status: string | null
+          total_amount: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          custom_design_id?: string | null
+          fabric_preference?: string | null
+          id?: string
+          item_id?: string | null
+          measurements?: Json | null
+          order_type: string
+          shipping_address?: Json | null
+          status?: string | null
+          total_amount?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          custom_design_id?: string | null
+          fabric_preference?: string | null
+          id?: string
+          item_id?: string | null
+          measurements?: Json | null
+          order_type?: string
+          shipping_address?: Json | null
+          status?: string | null
+          total_amount?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_custom_design_id_fkey"
+            columns: ["custom_design_id"]
+            isOneToOne: false
+            referencedRelation: "custom_designs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "identified_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      uploaded_images: {
+        Row: {
+          analysis_status: string | null
+          created_at: string | null
+          id: string
+          image_url: string
+          storage_path: string
+          user_id: string
+        }
+        Insert: {
+          analysis_status?: string | null
+          created_at?: string | null
+          id?: string
+          image_url: string
+          storage_path: string
+          user_id: string
+        }
+        Update: {
+          analysis_status?: string | null
+          created_at?: string | null
+          id?: string
+          image_url?: string
+          storage_path?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
