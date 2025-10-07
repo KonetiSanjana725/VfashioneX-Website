@@ -1,1 +1,7 @@
 project_id = "mkwwsohvmkxjxhshltjx"
+
+[functions.analyze-fashion]
+verify_jwt = true
+
+[functions.generate-custom-design]
+verify_jwt = true

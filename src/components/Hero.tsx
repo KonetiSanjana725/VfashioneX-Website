@@ -1,10 +1,19 @@
-import { Upload } from "lucide-react";
+import { Upload, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-fashion.jpg";
 
 export const Hero = () => {
+  const { isAuthenticated, signOut, user } = useAuth();
+  const navigate = useNavigate();
+
   const scrollToUpload = () => {
-    document.getElementById("upload-section")?.scrollIntoView({ behavior: "smooth" });
+    if (!isAuthenticated) {
+      navigate("/auth");
+    } else {
+      document.getElementById("upload-section")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -18,8 +27,30 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <div className="relative z-10 container mx-auto px-4 py-20">
+        {/* Auth Buttons - Top Right */}
+        {isAuthenticated ? (
+          <div className="absolute top-4 right-4 flex items-center gap-4">
+            <div className="text-right">
+              <p className="text-sm text-muted-foreground">Welcome!</p>
+              <p className="text-sm font-medium">{user?.email}</p>
+            </div>
+            <Button variant="outline" size="sm" onClick={signOut}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Sign Out
+            </Button>
+          </div>
+        ) : (
+          <div className="absolute top-4 right-4">
+            <Button variant="hero" onClick={() => navigate("/auth")}>
+              <User className="mr-2 h-4 w-4" />
+              Sign In
+            </Button>
+          </div>
+        )}
+
+        {/* Hero Content */}
+        <div className="max-w-4xl mx-auto space-y-8 text-center">
           {/* Brand Name */}
           <div className="inline-block">
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
@@ -48,7 +79,7 @@ export const Hero = () => {
               onClick={scrollToUpload}
             >
               <Upload className="mr-2 h-5 w-5" />
-              Upload & Discover
+              {isAuthenticated ? "Upload & Discover" : "Get Started"}
             </Button>
             <Button 
               variant="hero" 
