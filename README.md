@@ -8,7 +8,7 @@
 
 <p align="center">
   <strong>🚀 
-VFashionX – Snap, Customize, & Own Your Style
+VFashioneX – Snap, Customize, & Own Your Style
 </strong><br/>
   <em>A revolutionary AI-powered fashion assistant for street-to-doorstep outfit discovery.
 
