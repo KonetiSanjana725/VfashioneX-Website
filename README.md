@@ -99,7 +99,7 @@ Database: MongoDB / PostgreSQL
 ---
 
 ## 🌐 Deployment
-🔗 [Live Demo Link](#)
+🔗 https://preview--vfashionex.lovable.app/(#)
 
 ---
 
