@@ -18,13 +18,14 @@ VFashionX – Snap, Customize, & Own Your Style
 ---
 
 ## 📖 Project Description
-✨ **Problem Statement:** Finding the exact outfit you like is challenging:
+✨ **Problem Statement:** 
+1.Finding the exact outfit you like is challenging:
 
-Street style inspiration or online images often have no direct shopping link.
+2.Street style inspiration or online images often have no direct shopping link.
 
-Existing platforms rarely allow instant customization before purchase.
+3.Existing platforms rarely allow instant customization before purchase.
 
-Users face difficulty in getting outfits tailored to their preferences and measurements.
+4.Users face difficulty in getting outfits tailored to their preferences and measurements.
 
  
 💡 **Proposed Solution:** VFashionX uses AI to:
@@ -47,11 +48,12 @@ Users face difficulty in getting outfits tailored to their preferences and measu
 6. Allow order tracking in real-time.
 
  
-🎯 **Target Users / Use Cases:** Fashion enthusiasts seeking street-style outfits.
+🎯 **Target Users / Use Cases:** 
+1.Fashion enthusiasts seeking street-style outfits.
 
-Users who want personalized clothing before buying.
+2.Users who want personalized clothing before buying.
 
-Shoppers looking for quick AI-based style discovery.
+3.Shoppers looking for quick AI-based style discovery.
 
 
 
