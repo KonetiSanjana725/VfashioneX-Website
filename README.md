@@ -90,7 +90,7 @@ Backend: Node.js / Django / Flask
 AI/ML: TensorFlow / PyTorch for outfit recognition and AI customization
 
 Database: MongoDB / PostgreSQL
-
+Used lovable AI to make necessary changes in code 
 ---
 
 ## 📹 Demonstration Video
