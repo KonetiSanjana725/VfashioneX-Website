@@ -8,7 +8,7 @@
 
 <p align="center">
   <strong>🚀 
-VFashioneX – Snap, Customize, & Own Your Style
+VfashioneX – Snap, Customize, & Own Your Style
 </strong><br/>
   <em>A revolutionary AI-powered fashion assistant for street-to-doorstep outfit discovery.
 
@@ -28,7 +28,7 @@ VFashioneX – Snap, Customize, & Own Your Style
 4.Users face difficulty in getting outfits tailored to their preferences and measurements.
 
  
-💡 **Proposed Solution:** VFashionX uses AI to:
+💡 **Proposed Solution:** VfashioneX uses AI to:
 
 1. Identify outfit type and name from uploaded images or sketches (e.g., corset, bodycon dress)
 
@@ -93,7 +93,7 @@ Lovable Website Builder
 ---
 
 ## 📹 Demonstration Video
-▶️ [YouTube / Google Drive Link](#)
+▶️ https://youtu.be/KIuhvSemCYI?si=vdvoVAxQhnVKDgVG
 
 ---
 
