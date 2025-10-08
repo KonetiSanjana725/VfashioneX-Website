@@ -102,9 +102,11 @@ Database: MongoDB / PostgreSQL
 ---
 
 ## 📚 References
-- Resource 1  
-- Resource 2  
-- Resource 3
+-Fashion trend datasets & e-commerce API docs
+
+-AI image recognition tutorials & PyTorch/TensorFlow documentation
+
+-Online fashion marketplaces (Amazon, Myntra, H&M, Zara, Flipkart
 
 ---
 
