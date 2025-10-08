@@ -1,4 +1,4 @@
-import { Upload, Camera, Image as ImageIcon, Loader2, LogIn } from "lucide-react";
+import { Upload, Image as ImageIcon, Loader2, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { AnalysisResults } from "./AnalysisResults";
 import { CustomDesignForm } from "./CustomDesignForm";
+import { ColorPicker } from "./ColorPicker";
 
 export const UploadSection = () => {
   const { isAuthenticated, user } = useAuth();
@@ -20,6 +21,9 @@ export const UploadSection = () => {
   const [showCustomization, setShowCustomization] = useState(false);
   const [customizing, setCustomizing] = useState(false);
   const [customDesign, setCustomDesign] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string>("");
+  const [changingColor, setChangingColor] = useState(false);
+  const [customPrice, setCustomPrice] = useState<number>(0);
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -135,6 +139,34 @@ export const UploadSection = () => {
     }
   };
 
+  const handleColorChange = async (color: string, colorName: string) => {
+    if (!uploadedImage) return;
+    
+    setChangingColor(true);
+    setSelectedColor(color);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-custom-design', {
+        body: {
+          customizationPrompt: `Change the color of this outfit to ${colorName}. Keep all other details the same.`,
+          originalImageUrl: uploadedImage
+        }
+      });
+
+      if (error) throw error;
+
+      setCustomDesign(data.imageUrl);
+      setCustomPrice(Math.floor(Math.random() * 3000) + 2000);
+      toast.success(`Color changed to ${colorName}!`);
+      
+    } catch (error: any) {
+      console.error("Color change error:", error);
+      toast.error(error.message || "Failed to change color");
+    } finally {
+      setChangingColor(false);
+    }
+  };
+
   const handleCustomize = async (data: any) => {
     if (!isAuthenticated || !uploadedImage) return;
 
@@ -150,9 +182,9 @@ export const UploadSection = () => {
       if (error) throw error;
 
       setCustomDesign(designData.imageUrl);
+      setCustomPrice(Math.floor(Math.random() * 4000) + 3000);
       toast.success("Custom design created!");
 
-      // Save custom design to database
       await supabase.from('custom_designs').insert({
         user_id: user!.id,
         original_item_id: analysisResult?.id,
@@ -172,11 +204,22 @@ export const UploadSection = () => {
     }
   };
 
+  const handleOrder = () => {
+    navigate("/checkout", {
+      state: {
+        customDesign,
+        price: customPrice
+      }
+    });
+  };
+
   const resetUpload = () => {
     setUploadedImage(null);
     setAnalysisResult(null);
     setShowCustomization(false);
     setCustomDesign(null);
+    setSelectedColor("");
+    setCustomPrice(0);
   };
 
   if (!isAuthenticated) {
@@ -268,43 +311,75 @@ export const UploadSection = () => {
           </Card>
         )}
 
-        {/* Analysis Results */}
+        {/* Analysis & Color Picker */}
         {uploadedImage && !showCustomization && (
           <div className="space-y-6">
             <Card className="overflow-hidden">
               <div className="relative">
                 <img 
-                  src={uploadedImage} 
-                  alt="Uploaded fashion" 
+                  src={customDesign || uploadedImage} 
+                  alt="Fashion item" 
                   className="w-full h-auto max-h-96 object-contain"
                 />
               </div>
             </Card>
 
             {!analysisResult ? (
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  variant="gradient" 
-                  size="lg"
-                  onClick={analyzeImage}
-                  disabled={analyzing}
-                >
-                  {analyzing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {analyzing ? "Analyzing..." : "Analyze with AI"}
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={resetUpload}
-                >
-                  Upload Different Image
-                </Button>
+              <div className="space-y-6">
+                <ColorPicker 
+                  onColorSelect={handleColorChange}
+                  disabled={changingColor}
+                  selectedColor={selectedColor}
+                />
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    variant="gradient" 
+                    size="lg"
+                    onClick={analyzeImage}
+                    disabled={analyzing || changingColor}
+                  >
+                    {analyzing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {analyzing ? "Analyzing..." : "Analyze with AI"}
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={resetUpload}
+                  >
+                    Upload Different Image
+                  </Button>
+                </div>
               </div>
             ) : (
-              <AnalysisResults
-                {...analysisResult}
-                onCustomize={() => setShowCustomization(true)}
-              />
+              <>
+                <ColorPicker 
+                  onColorSelect={handleColorChange}
+                  disabled={changingColor}
+                  selectedColor={selectedColor}
+                />
+                <AnalysisResults
+                  {...analysisResult}
+                  onCustomize={() => setShowCustomization(true)}
+                  customPrice={customPrice}
+                />
+              </>
+            )}
+
+            {customDesign && customPrice > 0 && (
+              <Card className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Ready to Order?</h3>
+                    <p className="text-3xl font-bold text-accent">
+                      ₹{customPrice.toLocaleString('en-IN')}
+                    </p>
+                  </div>
+                  <Button variant="gradient" size="lg" onClick={handleOrder}>
+                    Order This Design
+                  </Button>
+                </div>
+              </Card>
             )}
           </div>
         )}
@@ -320,7 +395,7 @@ export const UploadSection = () => {
         )}
 
         {/* Custom Design Result */}
-        {customDesign && (
+        {showCustomization && customDesign && (
           <div className="space-y-6">
             <Card className="overflow-hidden">
               <div className="relative">
@@ -331,14 +406,24 @@ export const UploadSection = () => {
                 />
               </div>
             </Card>
-            <div className="flex gap-4 justify-center">
-              <Button variant="gradient" size="lg">
-                Order This Design
-              </Button>
-              <Button variant="outline" size="lg" onClick={resetUpload}>
-                Start Over
-              </Button>
-            </div>
+            <Card className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Your Custom Design</h3>
+                  <p className="text-3xl font-bold text-accent">
+                    ₹{customPrice.toLocaleString('en-IN')}
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <Button variant="gradient" size="lg" onClick={handleOrder}>
+                    Order This Design
+                  </Button>
+                  <Button variant="outline" size="lg" onClick={resetUpload}>
+                    Start Over
+                  </Button>
+                </div>
+              </div>
+            </Card>
           </div>
         )}
       </div>
