@@ -7,26 +7,64 @@
 ---
 
 <p align="center">
-  <strong>🚀 Project Title</strong><br/>
-  <em>A short tagline or description of your project</em>
+  <strong>🚀 
+VFashionX – Snap, Customize, & Own Your Style
+</strong><br/>
+  <em>A revolutionary AI-powered fashion assistant for street-to-doorstep outfit discovery.
+
+</em>
 </p>
 
 ---
 
 ## 📖 Project Description
-✨ **Problem Statement:** What problem are you solving?  
-💡 **Proposed Solution:** How does your project solve it?  
-🎯 **Target Users / Use Cases:** Who benefits from your solution?  
+✨ **Problem Statement:** Finding the exact outfit you like is challenging:
+
+Street style inspiration or online images often have no direct shopping link.
+
+Existing platforms rarely allow instant customization before purchase.
+
+Users face difficulty in getting outfits tailored to their preferences and measurements.
+
+ 
+💡 **Proposed Solution:** VFashionX uses AI to:
+
+1. Identify outfit type and name from uploaded images or sketches (e.g., corset, bodycon dress).
+
+
+2. Provide working shopping links from platforms like Amazon, Myntra, H&M, Zara, and Flipkart.
+
+
+3. Enable AI customization — change color, sleeves, neckline, shape, and fabric.
+
+
+4. Show price in Indian Rupees for the customized outfit.
+
+
+5. Facilitate secure order placement with address, delivery slot, mobile verification via OTP, payment, and confirmation.
+   
+
+6. Allow order tracking in real-time.
+
+ 
+🎯 **Target Users / Use Cases:** Fashion enthusiasts seeking street-style outfits.
+
+Users who want personalized clothing before buying.
+
+Shoppers looking for quick AI-based style discovery.
+
+
 
 ---
 
 ## 🔬 Methodology
-1. **Research & Ideation** – Understand problem & brainstorm.  
-2. **Design** – Wireframes, UI/UX, system architecture.  
-3. **Develop** – Implement core features.  
-4. **Test** – Unit/integration tests + user feedback.  
-5. **Deploy** – Host demo, collect metrics.  
-6. **Future Scope** – Next features and improvements.
+1. **Research & Ideation** – Understand user pain points in fashion discovery and customization.  
+2. **Design** – Wireframes, UI/UX, system architecture, and color selection bar. 
+3. **Develop** – Implement AI outfit recognition, shopping link integration, customization, price calculation, checkout, and payment features. 
+4. **Test** – Unit/integration tests, user feedback, and real-world trial for AI customization accuracy.  
+5. **Deploy** – Host demo, collect user metrics, and ensure seamless e-commerce integration.
+6. **Future Scope** – AR-based virtual try-on, AI stylist recommendations, community sharing, and international e-commerce expansion.
+
 
 ---
 
@@ -35,15 +73,21 @@
 
 | Name | Role | Email |
 |---|---:|---|
-| Member 1 Name| Team Lead | member1@example.com |
-| Member 2 Name| Team Member| member2@example.com |
-| Member 3 Name| Team Member | member3@example.com |(Optional)
-| Member 4 Name| Team Member | member4@example.com |(Optional)
+| B.T Vaishnavi| Team Lead | 160624733006@stanley.edu.in |
+| K.Sanjana | Team Member| 160624733033@stanley.edu.in |
+| Fareeha | Team Member | 160624733017@stanley.edu.in |(Optional)
+| M.Sanjana | Team Member | 160624733035@stanley.edu.in |(Optional)
 
 ---
 
 ## 🛠️ Technology Stack
-`React` | `Node.js` | `Firebase` | `Python` | `TensorFlow`
+Frontend: React Native / Flutter
+
+Backend: Node.js / Django / Flask
+
+AI/ML: TensorFlow / PyTorch for outfit recognition and AI customization
+
+Database: MongoDB / PostgreSQL
 
 ---
 
