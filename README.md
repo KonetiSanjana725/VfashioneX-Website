@@ -30,22 +30,19 @@ VFashioneX – Snap, Customize, & Own Your Style
  
 💡 **Proposed Solution:** VFashionX uses AI to:
 
-1. Identify outfit type and name from uploaded images or sketches (e.g., corset, bodycon dress).
+1. Identify outfit type and name from uploaded images or sketches (e.g., corset, bodycon dress)
 
 
-2. Provide working shopping links from platforms like Amazon, Myntra, H&M, Zara, and Flipkart.
+2. Enable AI customization — change color, sleeves, neckline, shape, and fabric.
 
 
-3. Enable AI customization — change color, sleeves, neckline, shape, and fabric.
+3. Show price in Indian Rupees for the customized outfit.
 
 
-4. Show price in Indian Rupees for the customized outfit.
-
-
-5. Facilitate secure order placement with address, delivery slot, mobile verification via OTP, payment, and confirmation.
+4. Facilitate secure order placement with address, delivery slot, mobile verification via OTP, payment, and confirmation.
    
 
-6. Allow order tracking in real-time.
+5. Allow order tracking in real-time.
 
  
 🎯 **Target Users / Use Cases:** 
