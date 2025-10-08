@@ -113,8 +113,10 @@ Lovable Website Builder
 
 ## 🖼️ Assets / Screenshots
 <p align="center">
-  <img src="assets/Homepage.png" alt="Application Screenshot" width="220" /><br/>
-  <img src="assets/upload.png" alt="Application Screenshot" width="600" />
+  <img src="src/assets/Homepage.png" alt="Application Screenshot" width="220" /><br/>
+  <img src="src/assets/upload.png" alt="Application Screenshot" width="600" />
+   <img src="src/assets/customize.png" alt="Application Screenshot" width="600" />
+    <img src="src/assets/order.png" alt="Application Screenshot" width="600" /> 
 </p>
 
 ---
