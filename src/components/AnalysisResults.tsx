@@ -20,6 +20,7 @@ interface AnalysisResultsProps {
   confidence: number;
   productMatches: ProductMatch[];
   onCustomize: () => void;
+  customPrice?: number;
 }
 
 export const AnalysisResults = ({
@@ -31,6 +32,7 @@ export const AnalysisResults = ({
   confidence,
   productMatches,
   onCustomize,
+  customPrice,
 }: AnalysisResultsProps) => {
   return (
     <div className="space-y-6">
@@ -57,6 +59,15 @@ export const AnalysisResults = ({
             </Badge>
           </div>
 
+          {customPrice && (
+            <div className="bg-accent/10 p-4 rounded-lg">
+              <p className="text-sm text-muted-foreground mb-1">Estimated Price</p>
+              <p className="text-3xl font-bold text-accent">
+                ₹{customPrice.toLocaleString('en-IN')}
+              </p>
+            </div>
+          )}
+
           <Button onClick={onCustomize} variant="gradient" className="w-full">
             <Sparkles className="mr-2 h-4 w-4" />
             Customize This Design
@@ -69,6 +80,9 @@ export const AnalysisResults = ({
         <Card>
           <CardHeader>
             <CardTitle>Similar Products Online</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              Find matching items from popular retailers
+            </p>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
@@ -101,6 +115,9 @@ export const AnalysisResults = ({
                 </div>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground mt-4 text-center">
+              Links are AI-generated suggestions. Availability may vary.
+            </p>
           </CardContent>
         </Card>
       )}
