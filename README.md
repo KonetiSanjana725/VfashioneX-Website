@@ -19,7 +19,7 @@ VfashioneX – Snap, Customize, & Own Your Style
 
 ## 📖 Project Description
 ✨ **Problem Statement:** 
-1.Finding the exact outfit you like is challenging:
+1.Finding the exact outfit you like is challenging.
 
 2.Street style inspiration or online images often have no direct shopping link.
 
@@ -103,11 +103,11 @@ Lovable Website Builder
 ---
 
 ## 📚 References
--Fashion trend datasets & e-commerce API docs
+-Fashion trend datasets & e-commerce API docs.
 
--AI image recognition tutorials & PyTorch/TensorFlow documentation
+-AI image recognition tutorials & PyTorch/TensorFlow documentation.
 
--Online fashion marketplaces (Amazon, Myntra, H&M, Zara, Flipkart
+-Online fashion marketplaces (Amazon, Myntra, H&M, Zara, Flipkart).
 
 ---
 
