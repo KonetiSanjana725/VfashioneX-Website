@@ -84,8 +84,11 @@ VFashioneX – Snap, Customize, & Own Your Style
 
 ## 🛠️ Technology Stack
 Frontend: React Native / Flutter
+
 Backend: Node.js / Django / Flask
+
 AI/ML: TensorFlow / PyTorch for outfit recognition and AI customization
+
 Database: MongoDB / PostgreSQL
 
 ---
