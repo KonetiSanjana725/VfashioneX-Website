@@ -88,6 +88,8 @@ AI/ML: TensorFlow / PyTorch for outfit recognition and AI customization
 
 Database: MongoDB / PostgreSQL
 
+Lovable Website Builder 
+
 ---
 
 ## 📹 Demonstration Video
@@ -111,7 +113,7 @@ Database: MongoDB / PostgreSQL
 
 ## 🖼️ Assets / Screenshots
 <p align="center">
-  <img src="assets/homepage.png" alt="Application Screenshot" width="220" /><br/>
+  <img src="assets/Homepage.png" alt="Application Screenshot" width="220" /><br/>
   <img src="assets/upload.png" alt="Application Screenshot" width="600" />
 </p>
 
